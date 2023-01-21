@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "firstName": "Jose Ignacio",
+      "lastName": "Alvarez Torres Naranjo",
+      "userName": "JoseAT",
+      "password": "1q2w3e4r",
+      "savings": 1500
+    },
+    {
+      "firstName": "Josh Michel",
+      "lastName": "Johansen",
+      "userName": "JoseAT",
+      "password": "1a2s3d4f",
+      "savings": 7000
+    }
+  ]
+}
