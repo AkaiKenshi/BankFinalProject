@@ -8,7 +8,9 @@ import com.FinalProject.Time.ITimePassable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class User implements ITimePassable {
     private String firstName;
@@ -16,24 +18,22 @@ public class User implements ITimePassable {
     private String userName;
     private final String id;
     private String password;
-    public List<Account> accountList;
-    public static List<User> usersList;
+    private List<Account> accountList;
+    public static HashMap<String,User> usersList;
 
     public User(@NotNull String firstName, @NotNull String lastName, @NotNull String userName, @NotNull String password, @NotNull String id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
-        if (!isValidPassword(password)) throw new IllegalArgumentException("Invalid Password");
+        if (!isValidPassword(password)) throw new IllegalArgumentException("Contraseña Invalida");
         this.password = password;
 
-        if (usersList == null) usersList = new ArrayList<User>();
-        usersList.add(this);
-
-        for (User u : usersList) {
-            if (u.getId() == null) continue;
-            else if (u.getId().equals(id)) throw new IllegalArgumentException("ID must be unique");
-        }
+        if (usersList == null) usersList = new HashMap<String,User>();
+        if (usersList.containsKey(id)) throw new IllegalArgumentException("ID ya esta en uso")
         this.id = id;
+        usersList.put(id, this);
+
+
     }
 
     public String getFirstName() {
@@ -62,7 +62,7 @@ public class User implements ITimePassable {
 
     public void setPassword(@NotNull String password, @NotNull String confirmationPassword, @NotNull String oldPassword) {
         if (!oldPassword.equals(this.password) && !password.equals(confirmationPassword) && !isValidPassword(password)) {
-            throw new IllegalArgumentException("Password must have at least 1 upper cased character, lower cased character, number and special character");
+            throw new IllegalArgumentException("La contraseña debe tener al menos 1 carácter en mayúscula, carácter en minúscula, número y carácter especial.");
         }
         this.password = password;
     }
@@ -85,10 +85,7 @@ public class User implements ITimePassable {
     }
 
     public static boolean isValidId(String id) {
-        for (User u : usersList) {
-            if (id.equals(u.getId()) || id.length() != 10 ) return false;
-        }
-        return true;
+        return usersList.containsKey(id);
     }
 
     public Checking createCheckingAccount(double initMoney){
@@ -116,12 +113,11 @@ public class User implements ITimePassable {
     }
 
     public static User GetUser(String id, String password) {
-        for (User u : usersList) {
-            if(!u.getId().equals(id)) continue;
-            else if(!u.isCorrectPassword(password)) throw new IllegalArgumentException("Invalid Password");
-        }
-        throw new IllegalArgumentException("user doesn't exist");
+        if(!usersList.containsKey(id)) throw  new IllegalArgumentException("El usuario no existe");
+        if(!usersList.get(id).password.equals(password)) throw new IllegalArgumentException("Contraseña inválida");
+        return usersList.get(id);
     }
+
 
     public static boolean isValidPassword(@NotNull String password) {
         if (password.length() < 8) return false;

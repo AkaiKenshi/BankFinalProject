@@ -16,22 +16,22 @@ public class Savings extends Account implements IAccount, ITimePassable {
 
     @Override
     public void deposit(double amount) throws IllegalArgumentException {
-        if (amount < 0) throw new IllegalArgumentException("amount must be greater than 0");
+        if (amount < 0) throw new IllegalArgumentException("La cantidad debe ser mayor que 0");
         balance += amount;
     }
 
     @Override
     public void retire(double amount) throws IllegalArgumentException {
-        if (amount < 0) throw new IllegalArgumentException("amount must be greater than 0");
-        else if (amount > balance) throw new IllegalArgumentException("Insufficient founds");
+        if (amount < 0) throw new IllegalArgumentException("La cantidad debe ser mayor que 0");
+        else if (amount > balance) throw new IllegalArgumentException("Fondos Insuficientes");
         balance -= amount;
     }
 
     @Override
     public void transfer(double amount, IAccount otherAccount) throws IllegalArgumentException {
-        if (amount < 0 ) throw new IllegalArgumentException("amount must be greater than 0");
-        else if (otherAccount == this) throw new IllegalArgumentException("Can't transfer to the same account you're transferring from");
-        else if (amount > balance) throw new IllegalArgumentException("Insufficient founds");
+        if (amount < 0 ) throw new IllegalArgumentException("La cantidad debe ser mayor que 0");
+        else if (otherAccount == this) throw new IllegalArgumentException("No se puede transferir a la misma cuenta desde la que estás transfiriendo");
+        else if (amount > balance) throw new IllegalArgumentException("Fondos Insuficientes");
         retire(amount);
         otherAccount.deposit(amount);
     }
