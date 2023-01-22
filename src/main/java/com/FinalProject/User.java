@@ -137,7 +137,7 @@ public class User implements ITimePassable {
     }
 
     public static User GetUser(String id, String password) {
-        if (!usersList.containsKey(id)) throw new IllegalArgumentException("El usuario no existe");
+        if (!usersList.containsKey(id)) throw new IllegalArgumentException("El usuario no existe ");
         if (!usersList.get(id).password.equals(password)) throw new IllegalArgumentException("Contraseña inválida");
         return usersList.get(id);
     }
@@ -147,11 +147,11 @@ public class User implements ITimePassable {
     }
 
     public static boolean isValidPassword(@NotNull String password) {
-        if (password.length() < 8) return false;
-        boolean hasUpperCase = !password.equals(password.toLowerCase());
-        boolean hasLowerCase = !password.equals(password.toUpperCase());
-        boolean hasSpecialCharacter = !password.matches("[A-Za-z0-9]*");
-        boolean hasNumber = password.matches(".*\\d+.*");
+//        if (password.length() < 8) return false;
+//        boolean hasUpperCase = !password.equals(password.toLowerCase());
+//        boolean hasLowerCase = !password.equals(password.toUpperCase());
+//        boolean hasSpecialCharacter = !password.matches("[A-Za-z0-9]*");
+//        boolean hasNumber = password.matches(".*\\d+.*");
 
         return true;
     }

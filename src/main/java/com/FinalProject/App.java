@@ -71,7 +71,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         while (!wasLogin) {
             System.out.println("Ingrese su ID");
-            String id = sc.nextLine();
+            String id = Integer.toString(safeUserInt());
             System.out.println("Ingrese su Contraseña");
             String password = sc.nextLine();
             try {
@@ -103,7 +103,7 @@ public class App {
             String password = sc.nextLine();
 
             try {
-                User user = new User(name, lastName, userName, id, password);
+                User user = new User(name, lastName, userName, password, id);
                 userActions(user);
                 wasLogin = true;
             } catch (IllegalArgumentException e) {

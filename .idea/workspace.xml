@@ -4,30 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d92745e-5f69-4c54-b588-87043ba4a915" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_24_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="0d92745e-5f69-4c54-b588-87043ba4a915" name="Changes" comment="Fixed all errors, and replaced in Users the accountList from list to hashmap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/Checking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/Checking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/FixedTermInvestment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/FixedTermInvestment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/Savings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/Accounts/Savings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/Checking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/Checking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/FixedTermInvestment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/FixedTermInvestment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/IAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/IAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/Savings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/Accounts/Savings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/FinalProject/AppTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +57,18 @@
       <option name="presentableId" value="Default" />
       <updated>1674358298052</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed all errors, and replaced in Users the accountList from list to hashmap">
+      <created>1674363341216</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674363341216</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed all errors, and replaced in Users the accountList from list to hashmap" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed all errors, and replaced in Users the accountList from list to hashmap" />
   </component>
 </project>
