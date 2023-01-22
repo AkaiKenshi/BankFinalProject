@@ -1,12 +1,13 @@
 package com.FinalProject.Accounts;
 
 import com.FinalProject.Time.ITimePassable;
+import com.FinalProject.User;
 
 public class FixedTermInvestment extends Account implements ITimePassable {
     private int term;
 
-    public FixedTermInvestment(double balance, int term, int id) {
-        super(id);
+    public FixedTermInvestment(double balance, int term, User owner) {
+        super(owner);
         this.balance = balance;
         this.term = term;
     }
@@ -23,11 +24,8 @@ public class FixedTermInvestment extends Account implements ITimePassable {
         }
     }
 
-    public double Close(){
-        double temp = balance;
-        term = 0;
-        balance = 0;
-        return balance;
+    public void closeAccount(){
+        System.out.println("closing account, your balance was: " + balance +", and u had " + term +" months left" );
     }
 
 

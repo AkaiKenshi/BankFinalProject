@@ -1,18 +1,18 @@
 package com.FinalProject.Accounts;
 
+import com.FinalProject.User;
+
 public abstract class Account {
     protected double balance;
-    private final int id;
+    private final User owner;
 
-    protected Account(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
+    protected Account(User owner) {
+        this.owner = owner;
     }
 
     public double CheckBalance() {
         return balance;
     }
+
+    public abstract void  closeAccount();
 }

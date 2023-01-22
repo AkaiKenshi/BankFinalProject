@@ -1,13 +1,11 @@
 package com.FinalProject.Accounts;
 
-public class Checking extends Account implements IAccount{
-    public Checking(double balance, int id) {
-        super(id);
-        this.balance = balance;
-    }
+import com.FinalProject.User;
 
-    public Checking(int id) {
-        this(0, id);
+public class Checking extends Account implements IAccount{
+    public Checking(double balance, User owner) {
+        super(owner);
+        this.balance = balance;
     }
 
     @Override
@@ -30,5 +28,10 @@ public class Checking extends Account implements IAccount{
         else if (amount > balance) throw new IllegalArgumentException("Fondos Insuficientes");
         retire(amount);
         otherAccount.deposit(amount);
+    }
+
+    @Override
+    public void closeAccount() {
+        System.out.println("closing account your balance was: " + balance);
     }
 }

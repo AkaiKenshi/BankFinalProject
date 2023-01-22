@@ -2,8 +2,8 @@ package com.FinalProject;
 
 import com.FinalProject.Accounts.*;
 
+import java.util.InputMismatchException;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class App {
@@ -27,7 +27,7 @@ public class App {
 
     public static int safeUserInt() {
         try {
-            Scanner sc = new Scanner(system.in);
+            Scanner sc = new Scanner(System.in);
             return sc.nextInt();
         } catch (InputMismatchException e) {
             System.out.println("Argumento Invalido");
@@ -37,7 +37,7 @@ public class App {
 
     public static double safeUserDouble() {
         try {
-            Scanner sc = new Scanner(system.in);
+            Scanner sc = new Scanner(System.in);
             return sc.nextDouble();
         } catch (InputMismatchException e) {
             System.out.println("Argumento Invalido");
@@ -48,14 +48,14 @@ public class App {
     public static void printOptions(String initMsg, String... options) {
         System.out.println(initMsg);
         for (int i = 0; i < options.length; i++) {
-            System.out.println("    " + i + ") " + options[i]);
+            System.out.println("    " + (i+1) + ") " + options[i]);
         }
     }
 
     private static void enterAsUser() {
         boolean goBack = false;
         while (!goBack) {
-            printOptions("¿Qué necesita?: ", "Crear Usuario Nuevo", "Ingresar a un Usuario Existente", "Ingresar a un Usuario Existente", "Regresar");
+            printOptions("¿Qué necesita?: ", "Crear Usuario Nuevo", "Ingresar a un Usuario Existente", "Regresar");
             int command = safeUserInt();
             switch (command) {
                 case 1 -> createUsuario();
@@ -84,7 +84,7 @@ public class App {
     }
 
     private static void createUsuario() {
-        Scanner sc = new Scanner(system.in);
+        Scanner sc = new Scanner(System.in);
         boolean wasLogin = false;
         while (!wasLogin) {
             System.out.println("Ingrese su nombre");
@@ -123,7 +123,7 @@ public class App {
     private static void userActions(User user) {
         boolean wasLogout = false;
         while (!wasLogout) {
-            printOptions("¿Qué necesita?: ", "Crear cuenta Nueva", "Ingresar a una cuenta Existente", "Cerrar sesión");
+            printOptions("¿Qué necesita?: ", "Crear cuenta  Nueva", "Ingresar a una cuenta Existente", "Cerrar sesión");
             int command = safeUserInt();
             switch (command) {
                 case 1 -> createAccount(user);
@@ -136,6 +136,8 @@ public class App {
 
     private static void AccessAccount(User user) {
         boolean changeAccount = false;
+        String id = new Scanner(System.in).nextLine();
+
         while (!changeAccount) {
             printOptions("¿Qué necesita?: ", "Ingresar a cuentas", "Ver cuales cuentas existen", "Regresar");
 
@@ -145,22 +147,15 @@ public class App {
             switch (command) {
                 case 1 -> {
                     System.out.println("ingrese id de cuenta");
-                    int id = safeUserInt();
                     try {
-                        account = user.accountList.get(id);
+                        account = user.getAccountByID(id);
                         accountActions(account, user);
-                    } catch (IndexOutOfBoundsException e) {
+                    } catch ( NullPointerException e) {
                         System.out.println("ID Invalido");
                     }
                 }
                 case 2 -> {
-                    for (Account a : user.accountList) {
-                        String tipo;
-                        if (a instanceof Checking) tipo = "Corriente";
-                        else if (a instanceof Savings) tipo = "Ahorros";
-                        else tipo = "Inversion de plazo fijo";
-                        System.out.println(a.getId() + ": " + tipo);
-                    }
+                    user.printAllAccountIDs();
                 }
                 case 3 -> changeAccount = true;
                 default -> System.out.println("Comando invalido");
@@ -173,7 +168,7 @@ public class App {
         while (!goBack) {
             System.out.println("Ingrese cuanto dinero quiere ingresar");
             double money = safeUserDouble();
-            printOptions("Ingrese el tipo de cuenta que quiere", "Corriente", "Ahorros", "Inversion a plazo fijo", "regresar")
+            printOptions("Ingrese el tipo de cuenta que quiere", "Corriente", "Ahorros", "Inversion a plazo fijo", "regresar");
 
             int command = safeUserInt();
 
@@ -196,7 +191,7 @@ public class App {
                 }
             }
 
-            System.out.println("El ID de tu cuenta es: " + account.getId());
+            System.out.println("El ID de tu cuenta es: " + user.getIdByAccount(account) );
             accountActions(account, user);
             goBack = true;
 
@@ -216,15 +211,25 @@ public class App {
                     case 2 -> {
                         System.out.println("Ingrese el valor a transferir");
                         double money = safeUserDouble();
-                        System.out.println("Escriba el ID del otro usuario");
-                        String id = Integer.toString(safeUserInt());
+                        User otherUser;
                         try {
-                            User otherUser = User.usersList.get(id);
-                            IAccount otherAccount = otherUser.accountList()
-                            ((IAccount) account).transfer(money, otherUser.accountList());
-                        } catch (NoSuchElementException e) {
+                            System.out.println("Escriba el ID del otro usuario");
+                            String id = Integer.toString(safeUserInt());
+                            otherUser = User.usersList.get(id);
+                            try{
+                                System.out.println("Escriba el ID de la Cuenta del otro usuario");
+                                String accountId = new Scanner(System.in).nextLine();
+                                IAccount otherAccount = (IAccount) otherUser.getAccountByID(accountId);
+                                ((IAccount) account).transfer(money,otherAccount);
+                            } catch (NullPointerException e){
+                                System.out.println("Cuenta no existe");
+                            } catch (ClassCastException e){
+                                System.out.println("Esa es una cuenta de inversion a plazo fijo");
+                            }
+                        } catch ( NullPointerException e) {
                             System.out.println("Usuario no existe");
                         }
+
                     }
                     case 3 -> {
                         System.out.println("Ingrese el monto a depositar");
@@ -254,8 +259,7 @@ public class App {
                     case 1 -> System.out.println(account.CheckBalance());
                     case 2 -> System.out.println(((FixedTermInvestment) account).getTerm());
                     case 3 -> {
-                        System.out.println("Cuenta cerrada éxitosamente! hiciste: " + ((FixedTermInvestment) account).Close());
-                        user.accountList.remove(account);
+                        user.closeAccount(account);
                     }
                     case 4 -> endActions = true;
                 }
