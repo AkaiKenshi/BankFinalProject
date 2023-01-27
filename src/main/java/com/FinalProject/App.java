@@ -79,6 +79,8 @@ public class App {
                 wasLogin = true;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
+            } catch (NullPointerException e){
+                System.out.println("User does not exist");
             }
         }
     }
