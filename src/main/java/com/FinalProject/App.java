@@ -29,7 +29,7 @@ public class App {
         try {
             Scanner sc = new Scanner(System.in);
             return sc.nextInt();
-            } catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Argumento Invalido");
             return safeUserInt();
         }
@@ -48,7 +48,7 @@ public class App {
     public static void printOptions(String initMsg, String... options) {
         System.out.println(initMsg);
         for (int i = 0; i < options.length; i++) {
-            System.out.println("    " + (i+1) + ") " + options[i]);
+            System.out.println("    " + (i + 1) + ") " + options[i]);
         }
     }
 
@@ -150,7 +150,7 @@ public class App {
                     try {
                         account = user.getAccountByID(id);
                         accountActions(account, user);
-                    } catch ( NullPointerException e) {
+                    } catch (NullPointerException e) {
                         System.out.println("ID Invalido");
                     }
                 }
@@ -191,7 +191,7 @@ public class App {
                 }
             }
 
-            System.out.println("El ID de tu cuenta es: " + user.getIdByAccount(account) );
+            System.out.println("El ID de tu cuenta es: " + user.getIdByAccount(account));
             accountActions(account, user);
             goBack = true;
 
@@ -216,17 +216,17 @@ public class App {
                             System.out.println("Escriba el ID del otro usuario");
                             String id = Integer.toString(safeUserInt());
                             otherUser = User.usersList.get(id);
-                            try{
+                            try {
                                 System.out.println("Escriba el ID de la Cuenta del otro usuario");
                                 String accountId = new Scanner(System.in).nextLine();
                                 IAccount otherAccount = (IAccount) otherUser.getAccountByID(accountId);
-                                ((IAccount) account).transfer(money,otherAccount);
-                            } catch (NullPointerException e){
+                                ((IAccount) account).transfer(money, otherAccount);
+                            } catch (NullPointerException e) {
                                 System.out.println("Cuenta no existe");
-                            } catch (ClassCastException e){
+                            } catch (ClassCastException e) {
                                 System.out.println("Esa es una cuenta de inversion a plazo fijo");
                             }
-                        } catch ( NullPointerException e) {
+                        } catch (NullPointerException e) {
                             System.out.println("Usuario no existe");
                         }
 
@@ -258,10 +258,9 @@ public class App {
                 switch (command) {
                     case 1 -> System.out.println(account.CheckBalance());
                     case 2 -> System.out.println(((FixedTermInvestment) account).getTerm());
-                    case 3 -> {
-                        user.closeAccount(account);
-                    }
+                    case 3 -> user.closeAccount(account);
                     case 4 -> endActions = true;
+                    default -> System.out.println("Comando Invalido");
                 }
             }
         }
