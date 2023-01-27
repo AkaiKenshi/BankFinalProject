@@ -258,7 +258,10 @@ public class App {
                 switch (command) {
                     case 1 -> System.out.println(account.CheckBalance());
                     case 2 -> System.out.println(((FixedTermInvestment) account).getTerm());
-                    case 3 -> user.closeAccount(account);
+                    case 3 -> {
+                        user.closeAccount(account);
+                        endActions = true;
+                    }
                     case 4 -> endActions = true;
                     default -> System.out.println("Comando Invalido");
                 }

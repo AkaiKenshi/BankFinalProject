@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d92745e-5f69-4c54-b588-87043ba4a915" name="Changes" comment="Fixed all errors, and replaced in Users the accountList from list to hashmap, fixed Users not being found.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0d92745e-5f69-4c54-b588-87043ba4a915" name="Changes" comment="corrected something else">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/FinalProject/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FinalProject/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FinalProject/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FinalProject/App.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,12 +91,20 @@
       <option name="project" value="LOCAL" />
       <updated>1674795358273</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="corrected something else">
+      <created>1674801302693</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674801302693</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed all errors, and replaced in Users the accountList from list to hashmap" />
     <MESSAGE value="Fixed all errors, and replaced in Users the accountList from list to hashmap, fixed Users not being found." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed all errors, and replaced in Users the accountList from list to hashmap, fixed Users not being found." />
+    <MESSAGE value="corrected something else" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrected something else" />
   </component>
 </project>
