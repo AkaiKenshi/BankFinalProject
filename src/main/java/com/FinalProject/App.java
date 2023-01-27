@@ -13,7 +13,7 @@ public class App {
     public static void main(String[] args) {
         while (!exit) {
             System.out.println("el mes es " + mes);
-            printOptions("Quiere", "Ingresar/Crear Usuario", "Pasar el tiempo", "Terminar Aplicacion");
+            printOptions("Quiere", "Ingresar/Crear Usuario", "Pasar el tiempo", "Terminar Aplicación");
             int command = safeUserInt();
             switch (command) {
                 case 1 -> enterAsUser();
@@ -29,7 +29,7 @@ public class App {
         try {
             Scanner sc = new Scanner(System.in);
             return sc.nextInt();
-        } catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {
             System.out.println("Argumento Invalido");
             return safeUserInt();
         }
@@ -103,7 +103,7 @@ public class App {
             String password = sc.nextLine();
 
             try {
-                User user = new User(name, lastName, userName, password, id);
+                User user = new User("jose", "Alvarez Torre", "JAT", "password", "12324");
                 userActions(user);
                 wasLogin = true;
             } catch (IllegalArgumentException e) {
